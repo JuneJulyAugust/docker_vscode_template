@@ -1,0 +1,6 @@
+{
+  "docker.commands.attach": "docker exec -it -u ${UID} ${containerId} ${shellCommand}",
+  "docker.attachShellCommand.linuxContainer": "/bin/bash",
+  "docker.commands.composeUp":  "docker-compose -p $USER up",
+  "docker.commands.composeDown":  "docker-compose -p $USER down"
+}

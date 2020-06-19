@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+    dev_20.04:
+        container_name: dev_ubuntu_20.04_$USER
+        user: $UID:$GID
+        build:
+            context: .
+            dockerfile: ./ubuntu_20.04/Dockerfile
+        working_dir: /workspace
+        network_mode: "host"
+        privileged: true
+        tty: true
+        volumes:
+            - /etc/group:/etc/group:ro
+            - /etc/passwd:/etc/passwd:ro
+            - /etc/shadow:/etc/shadow:ro
+            - /etc/sudoers:/etc/sudoers:ro
+            - /etc/sudoers.d:/etc/sudoers.d:ro
+            - ./:/workspace
+            - /home/$USER:/home/$USER
+        entrypoint: ["/bin/bash"]
